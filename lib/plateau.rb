@@ -9,6 +9,10 @@ class Plateau
     end
   end
 
+  def have_coordinate?(x,y)
+    x.between?(start_x, end_x) && y.between?(start_y, end_y)
+  end
+
   private
     def coordinates_valid?(sx, sy, ex, ey)
       add_error 'Difference between start x cordinate and end x cordinate should atleast be one' if ex - sx < 1
