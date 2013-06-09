@@ -1,5 +1,4 @@
-ruby: 1.9.2-p290
-rspec: 2.12.2
+Nasa Rover problem's solution in Ruby 1.9.2-p290, Rspec 2.12.2
 
 MARS ROVERS
 
