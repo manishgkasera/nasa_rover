@@ -1,3 +1,4 @@
+#Plateau represents a grid
 class Plateau
   attr_reader   :start_x, :start_y, :end_x, :end_y
 
@@ -13,7 +14,16 @@ class Plateau
     x.between?(start_x, end_x) && y.between?(start_y, end_y)
   end
 
-  private
+  def coordinate_blank?(x,y)
+    if have_coordinate?(x, y)
+      return true
+    else
+      add_error("Plateau does'nt have this coordinates X:#{x}, Y#{y}")
+      return false
+    end
+  end
+
+  protected
     def coordinates_valid?(sx, sy, ex, ey)
       add_error 'Difference between start x cordinate and end x cordinate should atleast be one' if ex - sx < 1
       add_error 'Difference between start y cordinate and end y cordinate should atleast be one' if ey - sy < 1

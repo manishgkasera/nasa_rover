@@ -1,5 +1,4 @@
-require 'plateau'
-require 'compass_point'
+require_relative 'compass_point'
 
 #Rover represents a rover on a plateau,
 #it has a position which are valid coordinates on a plateau plus a compass direction
@@ -55,7 +54,7 @@ class Rover
 
   private
     def move_to_coordinate(x, y)
-      if plateau.have_coordinate?(x, y)
+      if plateau.coordinate_blank?(x, y)
         @pos_x, @pos_y = x, y
       else
         raise CannotMove
