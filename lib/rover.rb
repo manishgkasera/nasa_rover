@@ -6,10 +6,10 @@ class Rover
   attr_reader :plateau, :pos_x, :pos_y, :compass_point
 
   def initialize(plateau, pos_x=0, pos_y=0, face=:N)
-    if plateau.have_coordinate?(pos_x, pos_y)
+    if plateau.coordinate_blank?(pos_x, pos_y)
       @plateau, @pos_x, @pos_y, @compass_point = plateau, pos_x, pos_y, CompassPoint.new(face)
     else
-      raise Invalid
+      raise "Cannot add rover to position X:#{x}, Y:#{y} on plateau: #{plateau}"
     end
   end
 

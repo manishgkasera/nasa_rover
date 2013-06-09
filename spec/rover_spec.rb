@@ -60,4 +60,23 @@ describe 'Rover' do
       end
     end
   end
+
+  it 'should raise exception when initializing with invalid coordinates' do
+    p = Plateau.new(0,0,5,5)
+    begin
+      Rover.new(p, 5,6,:N)
+      1.should eq(2), "Rover should not be initialized if added to non existing location on plateau"
+    rescue
+    end
+  end
+
+  it 'should raise exception when initializing with coordinates where there is already a rover' do
+    p = PlateauWithRovers.new(0,0,5,5)
+    Rover.new(p, 5,5,:N)
+    begin
+      Rover.new(p, 5,5,:N)
+      1.should eq(2), "Rover should not be initialized if added to location which is not blank"
+    rescue
+    end
+  end
 end
